@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE IF NOT EXISTS users (
+  id                serial NOT NULL,
+  username          varchar NOT NULL UNIQUE,
+  salt              bytea NOT NULL,
+  hashed_password   varchar NOT NULL,
+  CONSTRAINT        pk_users PRIMARY KEY(id)
+);
